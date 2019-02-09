@@ -6,3 +6,6 @@ on certain keyboard/mouse movement with functions.
 
 I will know how to make the grid dynamic based upon a number the user passes in
 based on a prompt. 
+
+Resources:
+https://teamtreehouse.com/community/how-does-one-loop-through-elements-in-pure-javascript
