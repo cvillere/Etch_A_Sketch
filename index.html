@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+
+<body>
+    <script>
+        const containerDiv = document.createElement("div");
+
+        for (i = 0; i < 16; i++) {
+            const innerDiv = document.createElement("div");
+            innerDiv.className = "firstDivs";
+            innerDiv.style.display = "inline-grid";
+            innerDiv.style.border = "50px solid red";
+            innerDiv.style.margin = "50px 50px";
+            
+
+            containerDiv.appendChild(innerDiv);
+        };
+
+
+        console.log(containerDiv);
+        containerDiv.style.display = "flexbox";
+
+        document.body.appendChild(containerDiv);
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
