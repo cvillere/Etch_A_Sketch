@@ -21,10 +21,23 @@
 
 
         console.log(containerDiv);
-        containerDiv.style.display = "flexbox";
-
         document.body.appendChild(containerDiv);
 
+        var divs = document.querySelectorAll(".firstDivs");
+
+        function divColorChange (divContainers) {
+            var x = Math.floor(Math.random() * 256);
+            var y = Math.floor(Math.random() * 256);
+            var z = Math.floor(Math.random() * 256);
+            var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+            for (i = 0; i < divContainers.length - 1; i++ )
+                divContainers[i].style.backgroundColor = bgColor; 
+        };
+
+        //adding hover effect event listener for 
+        //mouse passing over div 
+        //btnRock.addEventListener("click", () => {playGame("rock", computerPlay())});
+        divs.addEventListener("hover", () => {divColorChange()});
 
 
 

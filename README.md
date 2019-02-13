@@ -9,3 +9,7 @@ based on a prompt.
 
 Resources:
 https://teamtreehouse.com/community/how-does-one-loop-through-elements-in-pure-javascript
+
+https://stackoverflow.com/questions/40956717/how-to-addeventlistener-to-multiple-elements-in-a-single-line
+
+https://stackoverflow.com/questions/11398522/create-a-div-using-loop
