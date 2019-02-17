@@ -12,7 +12,7 @@
             const innerDiv = document.createElement("div");
             innerDiv.className = "firstDivs";
             innerDiv.style.display = "inline-grid";
-            innerDiv.style.border = "50px solid red";
+            innerDiv.style.border = "50px dotted";
             innerDiv.style.margin = "50px 50px";
             
 
@@ -23,22 +23,36 @@
         console.log(containerDiv);
         document.body.appendChild(containerDiv);
 
-        var divs = document.querySelectorAll(".firstDivs");
+        const divs = document.querySelectorAll(".firstDivs");
 
-        function divColorChange (divContainers) {
-            var x = Math.floor(Math.random() * 256);
-            var y = Math.floor(Math.random() * 256);
-            var z = Math.floor(Math.random() * 256);
-            var bgColor = "rgb(" + x + "," + y + "," + z + ")";
-            for (i = 0; i < divContainers.length - 1; i++ )
-                divContainers[i].style.backgroundColor = bgColor; 
+        let divContainer = document.getElementsByClassName("firstDivs")
+
+        function divColorChange () {
+            for (i = 0; i < divContainer.length - 1; i++) {
+                let x = Math.floor(Math.random() * 256);
+                let y = Math.floor(Math.random() * 256);
+                let z = Math.floor(Math.random() * 256);
+                let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+                divContainer[i].style.color = bgColor; 
+            };
+            
         };
+
 
         //adding hover effect event listener for 
         //mouse passing over div 
         //btnRock.addEventListener("click", () => {playGame("rock", computerPlay())});
-        divs.addEventListener("hover", () => {divColorChange()});
 
+        /*
+        divs.forEach((elem) =>
+            elem.addEventListener("mouseover", (elem) => {divColorChange(elem)}));
+        */
+
+        divs.forEach((elem) =>
+            elem.addEventListener("mouseenter", (elem) => {divColorChange(elem)}));
+
+        divs.forEach((elem) =>
+            elem.addEventListener("mouseleave", (elem) => {divColorChange(elem)}));
 
 
 
