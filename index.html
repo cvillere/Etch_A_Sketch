@@ -10,50 +10,48 @@
 
         for (i = 0; i < 16; i++) {
             const innerDiv = document.createElement("div");
-            innerDiv.className = "firstDivs";
+            innerDiv.className = "firstDiv";
             innerDiv.style.display = "inline-grid";
             innerDiv.style.border = "50px dotted";
-            innerDiv.style.margin = "50px 50px";
+            //innerDiv.style.margin = "50px 50px";
             
 
             containerDiv.appendChild(innerDiv);
         };
 
-
-        console.log(containerDiv);
+        containerDiv.style.position = "relative";
+        containerDiv.style.top = "100px";
+        
+        
         document.body.appendChild(containerDiv);
 
-        const divs = document.querySelectorAll(".firstDivs");
 
-        let divContainer = document.getElementsByClassName("firstDivs")
 
-        function divColorChange () {
-            for (i = 0; i < divContainer.length - 1; i++) {
-                let x = Math.floor(Math.random() * 256);
-                let y = Math.floor(Math.random() * 256);
-                let z = Math.floor(Math.random() * 256);
-                let bgColor = "rgb(" + x + "," + y + "," + z + ")";
-                divContainer[i].style.color = bgColor; 
-            };
+        let x = Math.floor(Math.random() * 256);
+        let y = Math.floor(Math.random() * 256);
+        let z = Math.floor(Math.random() * 256);
+        let bgColor = "rgb(" + x + "," + y + "," + z + ")";
             
-        };
+        
+        [...document.querySelectorAll(".firstDiv")].forEach((firstDiv) => 
+            firstDiv.addEventListener("mouseenter", (firstDiv) => {
+            let x = Math.floor(Math.random() * 256);
+            let y = Math.floor(Math.random() * 256);
+            let z = Math.floor(Math.random() * 256);
+            let bgColor = "rgb(" + x + "," + y + "," + z + ")";   
+            firstDiv.target.style.color = bgColor; 
+        }));
+        
+        
 
-
-        //adding hover effect event listener for 
-        //mouse passing over div 
-        //btnRock.addEventListener("click", () => {playGame("rock", computerPlay())});
-
-        /*
-        divs.forEach((elem) =>
-            elem.addEventListener("mouseover", (elem) => {divColorChange(elem)}));
-        */
-
-        divs.forEach((elem) =>
-            elem.addEventListener("mouseenter", (elem) => {divColorChange(elem)}));
-
-        divs.forEach((elem) =>
-            elem.addEventListener("mouseleave", (elem) => {divColorChange(elem)}));
-
+        [...document.querySelectorAll(".firstDiv")].forEach(firstDiv => 
+            firstDiv.addEventListener("mouseleave", firstDiv => {
+            let x = Math.floor(Math.random() * 256);
+            let y = Math.floor(Math.random() * 256);
+            let z = Math.floor(Math.random() * 256);
+            let bgColor = "rgb(" + x + "," + y + "," + z + ")"; 
+            firstDiv.target.style.color = bgColor;
+        }));
 
 
 
