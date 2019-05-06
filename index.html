@@ -7,26 +7,30 @@
 <body>
     <script>
         const containerDiv = document.createElement("div");
-        containerDiv.style.maxWidth = "960px";
+        containerDiv.style.width = "960px";
+        containerDiv.className = "gridAttributes";
 
+        
 
+        function generateGrid () {
+            initialGridNumber = 256
+            for (i = 0; i < initialGridNumber; i++) {
+                const innerDiv = document.createElement("div");
+                innerDiv.className = "firstDiv";
+                innerDiv.style.display = "inline-grid";
+                innerDiv.style.border = "25px";
+                innerDiv.style.margin = "1px";
+                innerDiv.style.borderStyle = "dashed dashed dashed dashed"
 
-        for (i = 0; i < 25; i++) {
-            const innerDiv = document.createElement("div");
-            innerDiv.className = "firstDiv";
-            innerDiv.style.display = "inline-grid";
-            innerDiv.style.border = "25px";
-            innerDiv.style.margin = "1px";
-            innerDiv.style.borderStyle = "dashed dashed dashed dashed"
-
-            containerDiv.appendChild(innerDiv);
+                containerDiv.appendChild(innerDiv);
         };
-
+        };
+        generateGrid();
 
         containerDiv.style.position = "relative";
         containerDiv.style.top = "100px";
         document.body.appendChild(containerDiv);
-        //console.log(containerDiv);
+  
         
         const resetButton = document.createElement("button");
         resetButton.style.width = "150px";
@@ -48,18 +52,28 @@
 
         function createNewGrid (){
             clearGrid();
-            var x = prompt("How many divs per side would you like in your grid");
-            
-            for (i = 0; i < x; i++) {
+            let x = prompt("How many divs per side would you like in your grid");
+            let numOfElements = x**2;
+            let widthOfElements = (960 / x);
+            let borderPx = (widthOfElements / 2) + "px";
+            console.log(borderPx);
+            console.log(typeof(borderPx));
+            //console.log(widthOfElements);
+            for (i = 0; i < numOfElements; i++) {
                 const innerDiv = document.createElement("div");
                 innerDiv.className = "firstDiv";
                 innerDiv.style.display = "inline-grid";
-                innerDiv.style.border = "25px";
-                innerDiv.style.margin = "1px";
-                innerDiv.style.borderStyle = "dashed dashed dashed dashed";
+                //innerDiv.style.height = "320px";
+                //innerDiv.style.width = borderPx;
+                innerDiv.style.border = borderPx;
+                //innerDiv.style.margin = "1px";
+                
+                innerDiv.style.borderStyle = "solid solid solid solid";
                 containerDiv.appendChild(innerDiv);
+
             };
-            
+
+
             [...document.querySelectorAll(".firstDiv")].forEach((firstDiv) => 
                 firstDiv.addEventListener("mouseenter", (firstDiv) => {
                 let x = Math.floor(Math.random() * 256);
