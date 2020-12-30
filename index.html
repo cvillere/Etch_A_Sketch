@@ -1,133 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html>
 <head>
-<title></title>
+ <meta charset="utf-8">
+ <title></title>
+ <link rel="stylesheet" href="">
+ 
 </head>
 
+
 <body>
-    <script>
-        const containerDiv = document.createElement("div");
-        containerDiv.style.width = "960px";
-        containerDiv.className = "gridAttributes";
-
-        
-
-        function generateGrid () {
-            initialGridNumber = 256
-            for (i = 0; i < initialGridNumber; i++) {
-                const innerDiv = document.createElement("div");
-                innerDiv.className = "firstDiv";
-                innerDiv.style.display = "inline-grid";
-                innerDiv.style.border = "25px";
-                innerDiv.style.margin = "1px";
-                innerDiv.style.borderStyle = "dashed dashed dashed dashed"
-
-                containerDiv.appendChild(innerDiv);
-        };
-        };
-        generateGrid();
-
-        containerDiv.style.position = "relative";
-        containerDiv.style.top = "100px";
-        document.body.appendChild(containerDiv);
-  
-        
-        const resetButton = document.createElement("button");
-        resetButton.style.width = "150px";
-        resetButton.style.height = "55px";
-        resetButton.style.position = "fixed";
-        resetButton.style.left = "42%";
-
-        //function to clear grid on the site
-        //need to send user a popup asking how many squares 
-        //per side to make the new grid.
-        //New grid should be generated in same space as before. 
-
-        function clearGrid () {
-            document.querySelectorAll(".firstDiv").forEach(
-               e => e.parentNode.removeChild(e));
-            
-            
-        };
-
-        function createNewGrid (){
-            clearGrid();
-            let x = prompt("How many divs per side would you like in your grid");
-            let numOfElements = x**2;
-            let widthOfElements = (960 / x);
-            let borderPx = (widthOfElements / 2) + "px";
-            console.log(borderPx);
-            console.log(typeof(borderPx));
-            //console.log(widthOfElements);
-            for (i = 0; i < numOfElements; i++) {
-                const innerDiv = document.createElement("div");
-                innerDiv.className = "firstDiv";
-                innerDiv.style.display = "inline-grid";
-                //innerDiv.style.height = "320px";
-                //innerDiv.style.width = borderPx;
-                innerDiv.style.border = borderPx;
-                //innerDiv.style.margin = "1px";
-                
-                innerDiv.style.borderStyle = "solid solid solid solid";
-                containerDiv.appendChild(innerDiv);
-
-            };
-
-
-            [...document.querySelectorAll(".firstDiv")].forEach((firstDiv) => 
-                firstDiv.addEventListener("mouseenter", (firstDiv) => {
-                let x = Math.floor(Math.random() * 256);
-                let y = Math.floor(Math.random() * 256);
-                let z = Math.floor(Math.random() * 256);
-                let bgColor = "rgb(" + x + "," + y + "," + z + ")";   
-                firstDiv.target.style.color = bgColor; 
-            }));
-        
-        
-
-            [...document.querySelectorAll(".firstDiv")].forEach(firstDiv => 
-                firstDiv.addEventListener("mouseleave", firstDiv => {
-                let x = Math.floor(Math.random() * 256);
-                let y = Math.floor(Math.random() * 256);
-                let z = Math.floor(Math.random() * 256);
-                let bgColor = "rgb(" + x + "," + y + "," + z + ")"; 
-                firstDiv.target.style.color = bgColor;
-            }));
-    };
-
-        resetButton.addEventListener("click", () => createNewGrid());
-        
-
-
-        document.body.insertBefore(resetButton, containerDiv);
-            
-        
-        [...document.querySelectorAll(".firstDiv")].forEach((firstDiv) => 
-            firstDiv.addEventListener("mouseenter", (firstDiv) => {
-            let x = Math.floor(Math.random() * 256);
-            let y = Math.floor(Math.random() * 256);
-            let z = Math.floor(Math.random() * 256);
-            let bgColor = "rgb(" + x + "," + y + "," + z + ")";   
-            firstDiv.target.style.color = bgColor; 
-        }));
-        
-        
-
-        [...document.querySelectorAll(".firstDiv")].forEach(firstDiv => 
-            firstDiv.addEventListener("mouseleave", firstDiv => {
-            let x = Math.floor(Math.random() * 256);
-            let y = Math.floor(Math.random() * 256);
-            let z = Math.floor(Math.random() * 256);
-            let bgColor = "rgb(" + x + "," + y + "," + z + ")"; 
-            firstDiv.target.style.color = bgColor;
-        }));
-
-
-
-
-    </script>
-
-
+  <script src=""></script>
 </body>
-
 </html>
