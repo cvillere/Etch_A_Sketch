@@ -1,6 +1,19 @@
 .container {
 
     display: grid;
+    width: 960px;
+    border: 5px;
+    border-color: blueviolet;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
     
+}
 
+.cDiv {
+    background-color: orange;
+    border-style: solid;
+    height: 50px;
+
+
+    
 }
