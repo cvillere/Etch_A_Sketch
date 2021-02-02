@@ -12,8 +12,27 @@ function generateChildDivs () {
 }
 
 generateChildDivs();
-
 document.documentElement.style.setProperty('--columnsRowsValue', numberToSquare);
+
+//Change the color of the divs on hover
+const divs = document.querySelectorAll(".cDiv");
+[...divs].forEach(e => 
+  e.addEventListener('mouseenter', e => {
+    let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+    let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    e.target.style.backgroundColor = bgColor;
+}));
+
+[...divs].forEach(e => 
+  e.addEventListener('mouseleave', e => {
+    let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+    let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    e.target.style.backgroundColor = bgColor;
+}));
 
 
 
