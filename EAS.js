@@ -13,6 +13,8 @@ function generateChildDivs () {
 
 generateChildDivs();
 
+document.documentElement.style.setProperty('--columnsRowsValue', numberToSquare);
+
 
 
 
