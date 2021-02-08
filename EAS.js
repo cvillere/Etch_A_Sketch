@@ -1,6 +1,12 @@
 const containerDiv = document.body.querySelector(".container");
 const numberToSquare = 16;
-const squaredNumber = 256;
+const squaredNumber = Math.pow(numberToSquare, 2);
+
+const buttonDiv = document.querySelector(".user")
+
+function restart () {
+  
+}
 
 function generateChildDivs () {
   for (i = 0; i < squaredNumber; i++) {
@@ -34,6 +40,10 @@ const divs = document.querySelectorAll(".cDiv");
     e.target.style.backgroundColor = bgColor;
 }));
 
-
-
+//stopped on the button
+  //will need button to refresh the page
+  //accept a prompt and assign the input to 
+  //numberToSquare Variable
+  //Add a check to ensure user doesn't input neg. number,
+  //zero, or number above 100. 
 

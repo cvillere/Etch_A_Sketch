@@ -1,4 +1,5 @@
 :root {
+
     --columnsRowsValue: 4;
 }
 
@@ -14,10 +15,20 @@
 }
 
 .cDiv {
+
     background-color: orange;
     border-style: solid;
     height: 50px;
 
+}
 
-    
+.user {
+
+    display: grid;
+    height: 50px;
+    width: 985px;
+    margin: 5px;
+    justify-content: center;
+
+
 }
