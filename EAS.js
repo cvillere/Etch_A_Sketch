@@ -9,7 +9,7 @@ let initialGrid = columnCount(16);
 
 function generateChildDivs (colNum) {
   for (i = 0; i < colNum; i++) {
-    const childDiv = document.createElement("div");
+    let childDiv = document.createElement("div");
     childDiv.classList.add("cDiv")
     containerDiv.appendChild(childDiv);
     console.log("hello");
@@ -20,7 +20,7 @@ generateChildDivs(initialGrid);
 let columnValue = document.documentElement.style.setProperty('--columnsRowsValue', Math.sqrt(initialGrid));
 
 //Change the color of the divs on hover
-const divs = document.querySelectorAll(".cDiv");
+let divs = document.querySelectorAll(".cDiv");
 let colorChangeIn = [...divs].forEach(e => 
   e.addEventListener('mouseenter', e => {
     let x = Math.floor(Math.random() * 256);
