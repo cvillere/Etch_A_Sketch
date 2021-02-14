@@ -40,7 +40,7 @@ let colorChangeOut = [...divs].forEach(e =>
 }));
 
 function clearGrid () {
-  document.querySelectorAll(".container").forEach(
+  [...divs].forEach(
      e => e.parentNode.removeChild(e));
     }
 
@@ -52,13 +52,12 @@ restartButton.addEventListener('click', () => {
   if (newSquaredNumber < 1 || newSquaredNumber > 100) {
     alert("Please enter a number between 1 and 100")
   }
-  columnValue = document.documentElement.style.setProperty('--columnsRowsValue', Math.pow(newSquaredNumber, 2));
+  columnValue = document.documentElement.style.setProperty('--columnsRowsValue', newSquaredNumber);
   let squaredNumber = Math.pow(newSquaredNumber, 2);
   generateChildDivs(squaredNumber);
 });
 
-//console.log(restart());
-//generateChildDivs(restart());
+
 
 
 
