@@ -45,22 +45,20 @@ function clearGrid () {
     }
 
 const restartButton = document.querySelector(".button")
-function restart () {
-  restartButton.addEventListener('click', () => {
+restartButton.addEventListener('click', () => {
   clearGrid();
   let newSquaredNumber = prompt("Please enter a number!")
   console.log(newSquaredNumber);
   if (newSquaredNumber < 1 || newSquaredNumber > 100) {
     alert("Please enter a number between 1 and 100")
   }
-  columnValue = document.documentElement.style.setProperty('--columnsRowsValue', Math.sqrt(initialGrid));
-  console.log(newSquaredNumber);
-  return newSquaredNumber;
-})
-};
+  columnValue = document.documentElement.style.setProperty('--columnsRowsValue', Math.pow(newSquaredNumber, 2));
+  let squaredNumber = Math.pow(newSquaredNumber, 2);
+  generateChildDivs(squaredNumber);
+});
 
-console.log(restart());
-generateChildDivs(console.log(restart()));
+//console.log(restart());
+//generateChildDivs(restart());
 
 
 
