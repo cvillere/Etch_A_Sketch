@@ -1,28 +1,27 @@
 const containerDiv = document.body.querySelector(".container");
-const numberToSquare = 16;
-const squaredNumber = Math.pow(numberToSquare, 2);
 
-const buttonDiv = document.querySelector(".user")
-
-function restart () {
-  
+function columnCount (cols) {
+  let square = Math.pow(cols, 2);
+  return square;
 }
 
-function generateChildDivs () {
-  for (i = 0; i < squaredNumber; i++) {
+let initialGrid = columnCount(16);
+
+function generateChildDivs (colNum) {
+  for (i = 0; i < colNum; i++) {
     const childDiv = document.createElement("div");
     childDiv.classList.add("cDiv")
     containerDiv.appendChild(childDiv);
+    console.log("hello");
   }
-
 }
 
-generateChildDivs();
-document.documentElement.style.setProperty('--columnsRowsValue', numberToSquare);
+generateChildDivs(initialGrid);
+let columnValue = document.documentElement.style.setProperty('--columnsRowsValue', Math.sqrt(initialGrid));
 
 //Change the color of the divs on hover
 const divs = document.querySelectorAll(".cDiv");
-[...divs].forEach(e => 
+let colorChangeIn = [...divs].forEach(e => 
   e.addEventListener('mouseenter', e => {
     let x = Math.floor(Math.random() * 256);
     let y = Math.floor(Math.random() * 256);
@@ -31,7 +30,7 @@ const divs = document.querySelectorAll(".cDiv");
     e.target.style.backgroundColor = bgColor;
 }));
 
-[...divs].forEach(e => 
+let colorChangeOut = [...divs].forEach(e => 
   e.addEventListener('mouseleave', e => {
     let x = Math.floor(Math.random() * 256);
     let y = Math.floor(Math.random() * 256);
@@ -40,10 +39,28 @@ const divs = document.querySelectorAll(".cDiv");
     e.target.style.backgroundColor = bgColor;
 }));
 
-//stopped on the button
-  //will need button to refresh the page
-  //accept a prompt and assign the input to 
-  //numberToSquare Variable
-  //Add a check to ensure user doesn't input neg. number,
-  //zero, or number above 100. 
+function clearGrid () {
+  document.querySelectorAll(".container").forEach(
+     e => e.parentNode.removeChild(e));
+    }
+
+const restartButton = document.querySelector(".button")
+function restart () {
+  restartButton.addEventListener('click', () => {
+  clearGrid();
+  let newSquaredNumber = prompt("Please enter a number!")
+  console.log(newSquaredNumber);
+  if (newSquaredNumber < 1 || newSquaredNumber > 100) {
+    alert("Please enter a number between 1 and 100")
+  }
+  columnValue = document.documentElement.style.setProperty('--columnsRowsValue', Math.sqrt(initialGrid));
+  console.log(newSquaredNumber);
+  return newSquaredNumber;
+})
+};
+
+console.log(restart());
+generateChildDivs(console.log(restart()));
+
+
 
