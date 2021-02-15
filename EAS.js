@@ -12,7 +12,6 @@ function generateChildDivs (colNum) {
     let childDiv = document.createElement("div");
     childDiv.classList.add("cDiv")
     containerDiv.appendChild(childDiv);
-    console.log("hello");
   }
 }
 
@@ -39,16 +38,16 @@ let colorChangeOut = [...divs].forEach(e =>
     e.target.style.backgroundColor = bgColor;
 }));
 
-function clearGrid () {
-  [...divs].forEach(
-     e => e.parentNode.removeChild(e));
-    }
+function clearGrid (){
+while (containerDiv.firstChild) {
+  containerDiv.removeChild(containerDiv.firstChild);
+  }
+};
 
 const restartButton = document.querySelector(".button")
 restartButton.addEventListener('click', () => {
   clearGrid();
   let newSquaredNumber = prompt("Please enter a number!")
-  console.log(newSquaredNumber);
   if (newSquaredNumber < 1 || newSquaredNumber > 100) {
     alert("Please enter a number between 1 and 100")
   }
