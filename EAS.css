@@ -3,14 +3,23 @@
     --columnsRowsValue: 4;
 }
 
+body, html {
+
+    height: 100%;
+    width: 100%;
+
+}
+
 .container {
 
     display: grid;
-    width: 960px;
+    height: 100%;
+    width: 100%;
     border: 15px solid;
     border-color: blueviolet;
     grid-template-columns: repeat(var(--columnsRowsValue), 1fr);
     grid-template-rows: repeat(var(--columnsRowsValue), 1fr);
+
     
 }
 
@@ -18,7 +27,8 @@
 
     background-color: orange;
     border-style: solid;
-    height: 50px;
+    height: 1fr;
+    width: 1fr;
 
 }
 
@@ -26,7 +36,7 @@
 
     display: grid;
     height: 50px;
-    width: 985px;
+    width: 100%;
     margin: 5px;
     justify-content: center;
 
