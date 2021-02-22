@@ -20,7 +20,8 @@ let columnValue = document.documentElement.style.setProperty('--columnsRowsValue
 
 //Change the color of the divs on hover
 let divs = document.querySelectorAll(".cDiv");
-let colorChangeIn = [...divs].forEach(e => 
+function colorChangeIn (nodeList) {
+  [...nodeList].forEach(e => 
   e.addEventListener('mouseenter', e => {
     let x = Math.floor(Math.random() * 256);
     let y = Math.floor(Math.random() * 256);
@@ -28,8 +29,11 @@ let colorChangeIn = [...divs].forEach(e =>
     let bgColor = "rgb(" + x + "," + y + "," + z + ")";
     e.target.style.backgroundColor = bgColor;
 }));
+};
+colorChangeIn(divs);
 
-let colorChangeOut = [...divs].forEach(e => 
+function colorChangeOut (nodeList) {
+  [...nodeList].forEach(e => 
   e.addEventListener('mouseleave', e => {
     let x = Math.floor(Math.random() * 256);
     let y = Math.floor(Math.random() * 256);
@@ -37,6 +41,8 @@ let colorChangeOut = [...divs].forEach(e =>
     let bgColor = "rgb(" + x + "," + y + "," + z + ")";
     e.target.style.backgroundColor = bgColor;
 }));
+};
+colorChangeOut(divs);
 
 function clearGrid (){
 while (containerDiv.firstChild) {
@@ -49,12 +55,17 @@ restartButton.addEventListener('click', () => {
   clearGrid();
   let newSquaredNumber = prompt("Please enter a number!")
   if (newSquaredNumber < 1 || newSquaredNumber > 100) {
-    alert("Please enter a number between 1 and 100")
+    alert("Please enter a number between 1 and 100");
+    return;  
   }
   columnValue = document.documentElement.style.setProperty('--columnsRowsValue', newSquaredNumber);
   let squaredNumber = Math.pow(newSquaredNumber, 2);
+  let divs = document.querySelectorAll(".cDiv");
   generateChildDivs(squaredNumber);
+  colorChangeIn(divs);
+  colorChangeOut(divs);
 });
+
 
 
 
