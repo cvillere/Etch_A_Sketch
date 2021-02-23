@@ -60,8 +60,8 @@ restartButton.addEventListener('click', () => {
   }
   columnValue = document.documentElement.style.setProperty('--columnsRowsValue', newSquaredNumber);
   let squaredNumber = Math.pow(newSquaredNumber, 2);
-  let divs = document.querySelectorAll(".cDiv");
   generateChildDivs(squaredNumber);
+  let divs = document.querySelectorAll(".cDiv");
   colorChangeIn(divs);
   colorChangeOut(divs);
 });
